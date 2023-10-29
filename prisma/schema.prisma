@@ -9,3 +9,57 @@ datasource db {
   provider = "mongodb"
   url      = env("DATABASE_URL")
 }
+
+model Ages{
+  id       String    @id @default(auto()) @map("_id") @db.ObjectId
+  age       Int
+  courses AgesOnCourses[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model AgesOnCourses{
+  id       String    @id @default(auto()) @map("_id") @db.ObjectId
+  age       Ages @relation(fields: [ageId], references: [id])
+  ageId       String @db.ObjectId
+  course       Courses @relation(fields: [courseId], references: [id])
+  courseId       String @db.ObjectId
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Courses{
+  id      String    @id @default(auto()) @map("_id") @db.ObjectId
+  name   String
+  description String
+  duration String
+  category   Coursecategories @relation(fields: [categoryId], references: [id])
+  categoryId String    @db.ObjectId
+  modules Coursemodules[]
+  ages AgesOnCourses[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Coursemodules{
+  id      String    @id @default(auto()) @map("_id") @db.ObjectId
+  order   Int
+  name   String
+  lessonsDuration String @default("0")
+  projectsDuration String @default("0")
+  quizzesDuration String @default("0")
+  totalDuration String 
+  description String
+  course    Courses   @relation(fields: [courseId], references: [id])
+  courseId  String @db.ObjectId
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Coursecategories{
+  id      String    @id @default(auto()) @map("_id") @db.ObjectId
+  name   String
+  courses Courses[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
