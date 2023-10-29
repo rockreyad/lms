@@ -1,6 +1,15 @@
 import React from "react";
 
-const CourseCard = ({ course }) => {
+const CourseCard = ({
+  course,
+}: {
+  course: {
+    name: string;
+    description: string;
+    duration: string;
+    imageUrl: string;
+  };
+}) => {
   return (
     <div className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 px-8 pb-8 pt-80 sm:pt-48  max-w-lg mx-auto">
       <div className="absolute inset-0 -z-10 h-full w-full object-cover">
