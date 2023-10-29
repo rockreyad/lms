@@ -1,0 +1,114 @@
+[
+  {
+    "name": "Foundation skills 1",
+    "description": "invites children aged 5-8 on an imaginative journey with vibrant characters to explore coding, computational thinking, and data representation. Through engaging stories and challenges, students delve into the basics of programming, algorithms, and digital data. Dive in, learn, and create!",
+    "duration": "14h",
+    "ages": [10, 11, 12, 5, 6, 7, 8, 9],
+    "category": "Foundation skills"
+  },
+  {
+    "name": "Foundation skills 2",
+    "description": "welcomes children aged 8-11 to deeper explorations in coding, computational logic, and data representation. With Cody, Ava, Tilley, Charlie, Alex, and Lonnie, uncover secrets, solve mysteries, and craft interactive programs. Embark on this digital adventure and harness the power of technology!",
+    "duration": "16h",
+    "ages": [10, 11, 12, 13, 9],
+    "category": "Foundation skills"
+  },
+  {
+    "name": "Foundation skills 3",
+    "description": "for ages 11-12 deepens understanding of computational thinking, data representation, and digital ethics. With diverse adventures, students explore game design, digital media, online security, and data analysis. Engage, analyze, and innovate in this immersive tech journey!",
+    "duration": "14h",
+    "ages": [12, 13, 14],
+    "category": "Foundation skills"
+  },
+  {
+    "name": "Foundation skills 4",
+    "description": "for ages 12-13 bridges the world of coding and creativity. Dive into HTML/CSS design, master foundational algorithms, explore the intricacies of JavaScript and Python, and unravel the mysteries of data representation. Craft, code, and conquer challenges in this dynamic tech course!",
+    "duration": "15h",
+    "ages": [13, 14, 15, 16, 17, 18],
+    "category": "Foundation skills"
+  },
+  {
+    "name": "Foundation skills 5",
+    "description": "for ages 13-14 unveils the digital world's intricacies. Journey with Juno, Max, and others, diving into networks, mastering advanced programming, exploring future tech impacts, and crafting dynamic web applications using JavaScript and jQuery. Unlock the digital realm's potential in this engaging course!",
+    "duration": "13h",
+    "ages": [14, 15, 16, 17, 18],
+    "category": "Foundation skills"
+  },
+  {
+    "name": "Game development 1",
+    "description": "for ages 15-16 is your gateway to crafting captivating games. Delve deep into JavaScript's gaming potential, explore Python's versatility, and evolve from beginner to budding developer. Build, debug, and design while setting the foundation for your game-making journey!",
+    "duration": "57h",
+    "ages": [15, 16, 17, 18],
+    "category": "Game development"
+  },
+  {
+    "name": "Software Development 1",
+    "description": "for ages 15-16 is your gateway to crafting captivating games. Delve deep into JavaScript's gaming potential, explore Python's versatility, and evolve from beginner to budding developer. Build, debug, and design while setting the foundation for your game-making journey!",
+    "duration": "62h",
+    "ages": [15, 16, 17, 18],
+    "category": "Software Development"
+  },
+  {
+    "name": "Web Design 1",
+    "description": "for ages 15-16 unveils the web's architecture, dives deep into the art of colors and typography, and empowers you with HTML/CSS skills. Transform ideas into impactful designs and craft compelling web experiences!",
+    "duration": "36h",
+    "ages": [15, 16, 17, 18],
+    "category": "Web Design"
+  },
+  {
+    "name": "Web Development 1",
+    "description": "for ages 15-16 demystifies the web, introduces HTML/CSS design essentials, hones JavaScript programming, and seamlessly integrates these skills. Craft dynamic apps, dive deep into web mechanics, and start your developer journey confidently!",
+    "duration": "61h",
+    "ages": [15, 16, 17, 18],
+    "category": "Web Development"
+  },
+  {
+    "name": "Game development 2",
+    "description": "for ages 17-18 delves deeper into advanced gaming techniques. Master advanced JavaScript functionalities, explore dynamic animations, harness Python's power for diverse applications, and design intuitive graphical interfaces. Elevate your game-making prowess and craft engaging user experiences!",
+    "duration": "49h",
+    "ages": [17, 18],
+    "category": "Game development"
+  },
+  {
+    "name": "Software Development 2",
+    "description": "for ages 17-18 deepens your coding journey. Dive into advanced JavaScript applications, craft immersive games and apps, refine Python skills for real-world utilities, and design user-friendly GUIs. Transcend basic coding and sculpt masterful software experiences!",
+    "duration": "49h",
+    "ages": [17, 18],
+    "category": "Software Development"
+  },
+  {
+    "name": "Web Design 2",
+    "description": "for ages 17-18 elevates your design skills. Craft mobile-optimized, interactive travel guides, harness advanced HTML and CSS, and master Responsive Web Design. Dive into PHP for dynamic web experiences, all guided by Code Avengers' engaging methods. Transform your visions into vibrant realities!",
+    "duration": "23h",
+    "ages": [17, 18],
+    "category": "Web Design"
+  },
+  {
+    "name": "Web Development 2",
+    "description": "for ages 17-18 offers a deep dive into advanced web techniques. Craft responsive designs, harness HTML, CSS, and JavaScript's power, utilize Firebase for dynamic apps, explore jQuery's efficiency, and master PHP. Code Avengers guides you to create compelling, interactive websites effortlessly.",
+    "duration": "70h",
+    "ages": [17, 18],
+    "category": "Web Development"
+  },
+  {
+    "name": "ITS-HTML-CSS",
+    "description": "Ready to dive deeper into HTML and CSS? What better way to do it than by building a 5 page, interactive travel guide optimized for mobile devices? Code Avengers will take you through it the fun way. Add audio and video to your webpages, make interactive buttons, create an HTML table and discover new ways to code with color.",
+    "duration": "34h",
+    "ages": [17, 18],
+    "category": "ITS  Certification"
+  },
+  {
+    "name": "ITS-JavaScript",
+    "description": "for ages 17-18 offers a deep dive into JavaScript development. Master advanced app creation with Code Avengers, from foundational concepts to real-world applications, integrating HTML/CSS, and building dynamic web solutions with Firebase.",
+    "duration": "93h",
+    "ages": [17, 18],
+    "category": "ITS  Certification"
+  },
+  {
+    "name": "ITS-Python",
+    "description": "for ages 17-18 delves deep into Python programming. From the basics of coding graphics to crafting GUIs with Tkinter, learners will harness advanced Python techniques and robust object-oriented practices for real-world applications.",
+    "duration": "93h",
+    "ages": [17, 18],
+    "category": "ITS  Certification"
+  }
+]
