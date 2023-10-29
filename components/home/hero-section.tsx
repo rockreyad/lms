@@ -29,7 +29,9 @@ export const HeroSection = () => {
                 </div>
               </div>
               <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-                Unlock Your Child&apos;s Learning Potential
+                Unlock Your{" "}
+                <span className="text-cyan-400">Child&apos;s Learning</span>{" "}
+                Potential
               </h1>
               <p className="mt-6 text-lg leading-8 text-gray-600">
                 Empower your child with essential digital skills for life. Our
