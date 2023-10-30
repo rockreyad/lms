@@ -1,59 +1,20 @@
 "use client";
-import React from "react";
+import React, { FunctionComponent } from "react";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import "swiper/css/thumbs";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import CourseCard from "../course-card";
+import { Course } from "@/types/course.schema";
 
-const courses = [
-  {
-    id: 1,
-    name: "Course Name 1",
-    description: "Description for Course 1",
-    duration: "3 months",
-    imageUrl: "https://source.unsplash.com/random/800x600",
-  },
-  {
-    id: 2,
-    name: "Course Name 2",
-    description: "Description for Course 2",
-    duration: "2 months",
-    imageUrl: "https://source.unsplash.com/random/800x600",
-  },
-  {
-    id: 3,
-    name: "Course Name 3",
-    description: "Description for Course 3",
-    duration: "4 months",
-    imageUrl: "https://source.unsplash.com/random/800x600",
-  },
-  {
-    id: 4,
-    name: "Course Name 1",
-    description: "Description for Course 1",
-    duration: "3 months",
-    imageUrl: "https://source.unsplash.com/random/800x600",
-  },
-  {
-    id: 5,
-    name: "Course Name 2",
-    description: "Description for Course 2",
-    duration: "2 months",
-    imageUrl: "https://source.unsplash.com/random/800x600",
-  },
-  {
-    id: 6,
-    name: "Course Name 3",
-    description: "Description for Course 3",
-    duration: "4 months",
-    imageUrl: "https://source.unsplash.com/random/800x600",
-  },
-];
+interface IFeatureCourse {
+  courses: Pick<Course, "id" | "name" | "description" | "duration" | "image">[];
+}
 
-const FeatureCourse = () => {
+const FeatureCourse: FunctionComponent<IFeatureCourse> = ({ courses }) => {
   return (
     <div className="bg-cyan-100/30 py-24 sm:py-32">
       <div className="mx-auto max-w-full px-6 lg:px-8 space-y-16">
@@ -70,12 +31,29 @@ const FeatureCourse = () => {
           spaceBetween={50}
           navigation
           freeMode={true}
-          slidesPerView={5}
           autoplay={{ delay: 5000 }}
           mousewheel={{
             releaseOnEdges: true,
           }}
           loop={true}
+          breakpoints={{
+            640: {
+              slidesPerView: 1,
+              spaceBetween: 20,
+            },
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 40,
+            },
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 50,
+            },
+            1280: {
+              slidesPerView: 4,
+              spaceBetween: 50,
+            },
+          }}
         >
           {courses.map((course) => (
             <SwiperSlide key={course.id}>

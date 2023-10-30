@@ -3,6 +3,8 @@ import { z } from "zod";
 const courseSchema = z.object({
   id: z.string(),
   name: z.string(),
+  featured: z.boolean(),
+  image: z.string(),
   description: z.string(),
   duration: z.string(),
   categoryId: z.string(),
