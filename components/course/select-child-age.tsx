@@ -2,19 +2,10 @@
 import React, { Fragment, FunctionComponent, useState } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import { RiArrowDownSFill } from "react-icons/ri";
-import { Course } from "@/types/course.schema";
-
-const people = [
-  { name: "Wade Cooper" },
-  { name: "Arlene Mccoy" },
-  { name: "Devon Webb" },
-  { name: "Tom Cook" },
-  { name: "Tanya Fox" },
-  { name: "Hellen Schmidt" },
-];
+import { Age } from "@/types/age.schema";
 
 interface ISelectChildAge {
-  age: Course[];
+  age: Age[];
 }
 const SelectChildAge: FunctionComponent<ISelectChildAge> = ({ age }) => {
   const [selected, setSelected] = useState(age[0]);
@@ -27,7 +18,7 @@ const SelectChildAge: FunctionComponent<ISelectChildAge> = ({ age }) => {
         <Listbox value={selected} onChange={setSelected}>
           <div className="relative mt-1">
             <Listbox.Button className="relative w-full cursor-default rounded-lg bg-white py-4 pl-3 shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white/75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 text-2xl text-center">
-              <span className="block truncate">{selected.name}</span>
+              <span className="block truncate">{selected.age}</span>
               <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
                 <RiArrowDownSFill
                   className="h-10 w-10 text-gray-400"
@@ -59,7 +50,7 @@ const SelectChildAge: FunctionComponent<ISelectChildAge> = ({ age }) => {
                             selected ? "font-medium" : "font-normal"
                           }`}
                         >
-                          {age.name}
+                          {age.age}
                         </span>
                         {selected ? (
                           <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-amber-600">
