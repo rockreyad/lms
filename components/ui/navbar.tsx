@@ -1,7 +1,4 @@
 "use client";
-import { Dialog } from "@headlessui/react";
-import { SunIcon } from "@radix-ui/react-icons";
-import { Box, Button, Flex, Heading, Text } from "@radix-ui/themes";
 import React, { FunctionComponent, useState } from "react";
 
 const navigation = [
@@ -37,7 +34,7 @@ const Navbar: FunctionComponent<INavbar> = () => {
               onClick={() => setMobileMenuOpen(true)}
             >
               <span className="sr-only">Open main menu</span>
-              <SunIcon className="h-6 w-6" aria-hidden="true" />
+              {/* <Icon className="h-6 w-6" aria-hidden="true" /> */}
             </button>
             {/* <div className="hidden lg:ml-12 lg:flex lg:gap-x-14">
               {navigation.map((item) => (
