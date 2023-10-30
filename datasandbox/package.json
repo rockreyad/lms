@@ -1,0 +1,20 @@
+{
+  "name": "uploadable-products",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "categories": "ts-node ./parseCategories.ts",
+    "course": "ts-node ./parseCourse.ts",
+    "modules": "ts-node ./parseCourseModules.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "fast-csv": "^4.3.6"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.1"
+  }
+}
