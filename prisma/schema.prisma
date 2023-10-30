@@ -30,8 +30,10 @@ model AgesOnCourses{
 
 model Courses{
   id      String    @id @default(auto()) @map("_id") @db.ObjectId
-  name   String @unique
+  name   String
   description String
+  featured Boolean @default(false)
+  image String  @default("/images/course-bg.jpeg")
   duration String
   category   Coursecategories @relation(fields: [categoryId], references: [id])
   categoryId String    @db.ObjectId
@@ -44,7 +46,7 @@ model Courses{
 model Coursemodules{
   id      String    @id @default(auto()) @map("_id") @db.ObjectId
   order   Int
-  name   String @unique
+  name   String
   lessonsDuration String @default("0")
   projectsDuration String @default("0")
   quizzesDuration String @default("0")
