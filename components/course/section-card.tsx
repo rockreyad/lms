@@ -1,4 +1,3 @@
-import { Box, Container, Flex, Heading, Text } from "@radix-ui/themes";
 import React, { FunctionComponent } from "react";
 
 interface ISecitonCard {
@@ -10,21 +9,10 @@ const SectionCard: FunctionComponent<ISecitonCard> = ({
   description,
 }) => {
   return (
-    <Flex
-      direction={"column"}
-      justify={"start"}
-      gap={"5"}
-      p={"5"}
-      mx={"5"}
-      className="bg-teal-100/50 rounded-xl"
-    >
-      <Text className="text-xl font-medium tracking-wider uppercase">
-        {title}
-      </Text>
-      <Text className="text-4xl font-medium tracking-[-1.12px]">
-        {description}
-      </Text>
-    </Flex>
+    <div className="bg-teal-100/50 rounded-xl flex flex-col justify-start gap-8 p-20">
+      <p className="text-xl font-medium tracking-wider uppercase">{title}</p>
+      <h2 className="text-4xl font-medium tracking-wide">{description}</h2>
+    </div>
   );
 };
 
