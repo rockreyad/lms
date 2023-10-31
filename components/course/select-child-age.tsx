@@ -69,7 +69,7 @@ const SelectChildAge: FunctionComponent<ISelectChildAge> = ({ age }) => {
       </div>
 
       <Link
-        href={`/${selected.age}`}
+        href={`/age-${selected.age}`}
         prefetch={true}
         className="bg-slate-800 text-cyan-500 font-semibold tracking-wider text-2xl uppercase py-4 px-10 rounded-lg shadow-md hover:bg-slate-700 hover:text-white transition duration-300 ease-in-out w-1/5 mx-auto text-center"
       >
