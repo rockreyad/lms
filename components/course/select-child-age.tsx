@@ -11,11 +11,14 @@ interface ISelectChildAge {
 const SelectChildAge: FunctionComponent<ISelectChildAge> = ({ age }) => {
   const [selected, setSelected] = useState(age[0]);
   return (
-    <div id="choose-age" className="bg-cyan-500 flex flex-col gap-8 p-20">
-      <p className="text-5xl font-semibold text-white text-center">
+    <div
+      id="choose-age"
+      className="bg-cyan-500 flex flex-col gap-8 px-6 py-24 lg:px-20"
+    >
+      <p className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white text-center">
         Please Select Your Child age
       </p>
-      <div className="w-1/4 mx-auto">
+      <div className="w-full md:w-2/4 lg:w-1/4 mx-auto">
         <Listbox value={selected} onChange={setSelected}>
           <div className="relative mt-1">
             <Listbox.Button className="relative w-full cursor-default rounded-lg bg-white py-4 pl-3 shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white/75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 text-2xl text-center">
@@ -71,7 +74,7 @@ const SelectChildAge: FunctionComponent<ISelectChildAge> = ({ age }) => {
       <Link
         href={`/age-${selected.age}`}
         prefetch={true}
-        className="bg-slate-800 text-cyan-500 font-semibold tracking-wider text-2xl uppercase py-4 px-10 rounded-lg shadow-md hover:bg-slate-700 hover:text-white transition duration-300 ease-in-out w-1/5 mx-auto text-center"
+        className="bg-slate-800 text-cyan-500 font-semibold tracking-wider text-2xl uppercase py-4 px-10 rounded-lg shadow-md hover:bg-slate-700 hover:text-white transition duration-300 ease-in-out w-2/3 md:w-2/5 lg:w-1/5 mx-auto text-center"
       >
         Next
       </Link>
