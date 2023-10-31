@@ -1,6 +1,7 @@
 import CourseSection from "@/components/course/course-section";
 import SectionCard from "@/components/course/section-card";
 import { getCoursesByAge } from "@/server/api/course";
+import { Category } from "@/types/category.schema";
 import { Course } from "@/types/course.schema";
 import { Metadata } from "next";
 import React from "react";
@@ -30,6 +31,15 @@ const AgeCourses = async ({ params }: { params: Props["params"] }) => {
       <SectionCard
         title="Our Course"
         description="You can choose from a wide range of courses designed to nurture your child's talents and knowledge. Unlock their potential with our engaging and educational offerings"
+        category={
+          (data as Course[])
+            .map((course) => course.category)
+            .filter((category, index, array) => {
+              return (
+                array.findIndex((cat) => cat?.id === category?.id) === index
+              );
+            }) as Category[]
+        }
       />
       <CourseSection courses={data as Course[]} />
     </div>

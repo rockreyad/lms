@@ -1,5 +1,10 @@
 "use client";
-import React, { FunctionComponent, useCallback } from "react";
+import React, {
+  FunctionComponent,
+  useCallback,
+  useEffect,
+  useRef,
+} from "react";
 import { RiSearchLine } from "react-icons/ri";
 import { useRouter, useSearchParams } from "next/navigation";
 
@@ -7,6 +12,14 @@ interface ISearchCourse {}
 const SearchCourse: FunctionComponent<ISearchCourse> = () => {
   const router = useRouter();
   const searchParams = useSearchParams()!;
+  const inputRef = useRef<HTMLInputElement | null>(null);
+
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [searchParams]);
+
   const createQueryString = useCallback(
     (name: string, value: string) => {
       const params = new URLSearchParams(searchParams);
@@ -26,6 +39,7 @@ const SearchCourse: FunctionComponent<ISearchCourse> = () => {
         <RiSearchLine />
       </span>
       <input
+        ref={inputRef}
         type="text"
         name="search"
         placeholder="Search Course"

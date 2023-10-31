@@ -8,10 +8,11 @@ import { usePathname } from "next/navigation";
 export default function CourseDefaultCard({
   course,
 }: {
-  course: Pick<Course, "name" | "description" | "duration" | "image"> | Course;
+  course: Pick<Course, "name" | "description" | "duration" | "image"> &
+    Partial<Pick<Course, "category">>;
 }) {
   const currentPath = usePathname();
-  let cardAge = course.description.match(/\d{1,2}-\d{1,2}/g);
+  let age = course.description.match(/\d{1,2}-\d{1,2}/g);
   return (
     <div className="p-2 border border-gray-300 rounded-xl space-y-4">
       <div className="relative">
@@ -23,7 +24,9 @@ export default function CourseDefaultCard({
           className="h-full w-full object-cover rounded-lg"
         />
         <div className="absolute top-4 left-4 bg-cyan-400 p-1 rounded-md">
-          <p className="text-lg font-semibold text-white">{course.duration}</p>
+          <p className="text-lg font-semibold text-white">
+            {course.category?.name}
+          </p>
         </div>
       </div>
       <div className="flex flex-col border-b border-b-gray-300 pb-4 space-y-2">
@@ -32,9 +35,9 @@ export default function CourseDefaultCard({
       </div>
       <div className="grid grid-cols-2">
         {
-          <div className={`${cardAge ? "block" : "invisible"} space-y-1`}>
+          <div className={`${age ? "block" : "invisible"} space-y-1`}>
             <h3 className="text-gray-300">Age</h3>
-            <h3 className="text-gray-800 font-semibold">{cardAge}</h3>
+            <h3 className="text-gray-800 font-semibold">{age}</h3>
           </div>
         }
         <div className="justify-self-end space-y-1">

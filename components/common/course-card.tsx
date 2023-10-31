@@ -3,8 +3,10 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { FunctionComponent } from "react";
 import CourseDefaultCard from "./course-default-card";
+
 interface ICourseCard {
-  course: Pick<Course, "name" | "description" | "duration" | "image"> | Course;
+  course: Pick<Course, "name" | "description" | "duration" | "image"> &
+    Partial<Pick<Course, "category">>;
   variant?: "featured" | "normal";
 }
 const CourseCard: FunctionComponent<ICourseCard> = ({
@@ -25,7 +27,6 @@ const CourseCard: FunctionComponent<ICourseCard> = ({
               src={course.image} // Replace with the course image URL
               alt={course.name}
               className="h-full w-full object-cover"
-              // layout="fill"
               width={500}
               height={500}
             />
