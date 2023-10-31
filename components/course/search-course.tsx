@@ -34,7 +34,7 @@ const SearchCourse: FunctionComponent<ISearchCourse> = () => {
   );
   let search = searchParams.get("search");
   return (
-    <div className="group relative w-2/4 mx-auto">
+    <div className="group relative w-full md:w-2/3 lg:w-2/4 mx-auto">
       <span className="group-hover:text-cyan-400 absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 text-2xl">
         <RiSearchLine />
       </span>
