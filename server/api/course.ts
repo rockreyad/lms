@@ -26,6 +26,9 @@ export async function getCoursesByAge(age: number) {
           },
         },
       },
+      include: {
+        category: true,
+      },
     });
     return response;
   } catch (error) {

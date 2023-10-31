@@ -24,6 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 const AgeCourses = async ({ params }: { params: Props["params"] }) => {
   const { age } = params;
   const data = await getCoursesByAge(Number(age));
+  console.log(data);
   return (
     <div className="mx-4 space-y-10">
       <SectionCard

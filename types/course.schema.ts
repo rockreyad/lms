@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { CategorySchema } from "./category.schema";
 
 const courseSchema = z.object({
   id: z.string(),
@@ -7,7 +8,7 @@ const courseSchema = z.object({
   image: z.string(),
   description: z.string(),
   duration: z.string(),
-  categoryId: z.string(),
+  category: CategorySchema.optional(),
   createdAt: z.date(),
   updatedAt: z.date(),
 });
