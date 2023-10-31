@@ -2,20 +2,25 @@
 import { useWindowScroll } from "@uidotdev/usehooks";
 import classNames from "classnames";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import React, { FunctionComponent } from "react";
 
 interface INavbar {
   className?: string;
 }
 const Navbar: FunctionComponent<INavbar> = ({ className }) => {
+  const pathname = usePathname();
   const [{ y: scrollY }] = useWindowScroll();
-  const isScrolled = scrollY && scrollY > 20;
+  const isScrolled = scrollY && scrollY > 20 && pathname !== "/";
+  const isHome = pathname === "/";
   return (
     <header
       className={classNames(
-        "inset-x-0 top-0 z-50 pb-4 transition-all duration-500 bg-slate-800",
+        "inset-x-0 top-0 z-50 pb-4 transition-all duration-500",
         {
           "sticky shadow-md shadow-gray-900": isScrolled,
+          "bg-slate-900": !isHome,
+          absolute: isHome,
         },
         className
       )}
