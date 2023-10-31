@@ -25,7 +25,7 @@ const AgeCourses = async ({ params }: { params: Props["params"] }) => {
   const { age } = params;
   const data = await getCoursesByAge(Number(age));
   return (
-    <div>
+    <div className="mx-4">
       <SectionCard
         title="Our Course"
         description="You can choose from a wide range of courses designed to nurture your child's talents and knowledge. Unlock their potential with our engaging and educational offerings"

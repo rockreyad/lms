@@ -57,7 +57,7 @@ const FeatureCourse: FunctionComponent<IFeatureCourse> = ({ courses }) => {
         >
           {courses.map((course) => (
             <SwiperSlide key={course.id}>
-              <CourseCard course={course} />
+              <CourseCard course={course} variant="featured" />
             </SwiperSlide>
           ))}
         </Swiper>
