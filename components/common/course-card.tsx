@@ -4,9 +4,15 @@ import Link from "next/link";
 import React, { FunctionComponent } from "react";
 import CourseDefaultCard from "./course-default-card";
 
-interface ICourseCard {
+export interface ICourseCard {
   course: Pick<Course, "name" | "description" | "duration" | "image"> &
-    Partial<Pick<Course, "category">>;
+    Partial<Pick<Course, "category">> & {
+      ages: {
+        age: {
+          age: number;
+        };
+      }[];
+    };
   variant?: "featured" | "normal";
 }
 const CourseCard: FunctionComponent<ICourseCard> = ({
@@ -17,9 +23,9 @@ const CourseCard: FunctionComponent<ICourseCard> = ({
     case "featured":
       return (
         <Link
-          href={"#"}
+          href={`age-${course.ages[0].age.age}/${course.name}`}
           prefetch
-          className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 px-8 pb-8 pt-80 sm:pt-48  max-w-sm mx-auto  shadow-lg shadow-cyan-200"
+          className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 px-8 pb-8 pt-80 sm:pt-48  max-w-sm mx-auto  shadow-lg shadow-cyan-200/30"
         >
           <div className="absolute inset-0 -z-10 h-full w-full object-cover">
             {/* Add an image for the course here */}
