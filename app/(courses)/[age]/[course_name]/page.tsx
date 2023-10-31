@@ -1,3 +1,4 @@
+import CourseInfo from "@/components/course-details/course-info";
 import { Metadata } from "next";
 import React from "react";
 
@@ -21,10 +22,15 @@ export default function SingleCourse({ params }: { params: Props["params"] }) {
   const course_name = _course_name.replace(/%20/g, " ");
   console.log("course_name", course_name);
   console.log("age", age);
+  const desc =
+    "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ut, delectus perferendis laudantium ratione sed tempore temporibus voluptatibus ipsam sapiente voluptate vero, modi, consectetur dolor. Incidunt, quos corporis expedita doloremque error iure. Nemo non eos error illo deleniti commodi natus dignissimos?";
   return (
     <div>
-      <p>Course name: {course_name}</p>
-      <p>Age: {age}</p>
+      <CourseInfo
+        name={course_name}
+        description={desc}
+        image="/images/course-bg.jpeg"
+      />
     </div>
   );
 }
