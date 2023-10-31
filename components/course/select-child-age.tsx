@@ -3,15 +3,16 @@ import React, { Fragment, FunctionComponent, useState } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import { RiArrowDownSFill } from "react-icons/ri";
 import { Age } from "@/types/age.schema";
+import Link from "next/link";
 
 interface ISelectChildAge {
-  age: Age[];
+  age: Pick<Age, "id" | "age">[];
 }
 const SelectChildAge: FunctionComponent<ISelectChildAge> = ({ age }) => {
   const [selected, setSelected] = useState(age[0]);
   return (
-    <div className="bg-slate-800 rounded-xl flex flex-col justify-start gap-8 p-20 w-full">
-      <p className="text-5xl font-semibold text-cyan-400 text-center">
+    <div id="choose-age" className="bg-cyan-500 flex flex-col gap-8 p-20">
+      <p className="text-5xl font-semibold text-white text-center">
         Please Select Your Child age
       </p>
       <div className="w-1/4 mx-auto">
@@ -66,6 +67,14 @@ const SelectChildAge: FunctionComponent<ISelectChildAge> = ({ age }) => {
           </div>
         </Listbox>
       </div>
+
+      <Link
+        href={`/${selected.age}`}
+        prefetch={true}
+        className="bg-slate-800 text-cyan-500 font-semibold tracking-wider text-2xl uppercase py-4 px-10 rounded-lg shadow-md hover:bg-slate-700 hover:text-white transition duration-300 ease-in-out w-1/5 mx-auto text-center"
+      >
+        Next
+      </Link>
     </div>
   );
 };

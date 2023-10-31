@@ -16,7 +16,7 @@ const CourseCard = ({
     <Link
       href={"#"}
       prefetch
-      className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 px-8 pb-8 pt-80 sm:pt-48  max-w-lg mx-auto  shadow-lg shadow-cyan-200"
+      className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 px-8 pb-8 pt-80 sm:pt-48  max-w-sm mx-auto  shadow-lg shadow-cyan-200"
     >
       <div className="absolute inset-0 -z-10 h-full w-full object-cover">
         {/* Add an image for the course here */}
