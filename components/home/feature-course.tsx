@@ -1,12 +1,19 @@
 "use client";
 import React, { FunctionComponent } from "react";
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
+import {
+  Navigation,
+  Pagination,
+  A11y,
+  Autoplay,
+  FreeMode,
+} from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import "swiper/css/thumbs";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import "swiper/css/scrollbar";
+import "swiper/css/free-mode";
+import "swiper/css/autoplay";
+import "swiper/css/a11y";
 import CourseCard from "../common/course-card";
 import { Course } from "@/types/course.schema";
 
@@ -16,7 +23,7 @@ interface IFeatureCourse {
 
 const FeatureCourse: FunctionComponent<IFeatureCourse> = ({ courses }) => {
   return (
-    <div className="bg-cyan-100/30 py-24 sm:py-32">
+    <div className="bg-cyan-100/30 pt-24 pb-8 sm:pt-32 sm:pb-16">
       <div className="mx-auto max-w-full px-6 lg:px-8 space-y-16">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
@@ -27,18 +34,21 @@ const FeatureCourse: FunctionComponent<IFeatureCourse> = ({ courses }) => {
           </p>
         </div>
         <Swiper
-          modules={[Navigation, Pagination, Scrollbar, A11y]}
-          spaceBetween={50}
+          className="!pb-16"
+          modules={[Navigation, Pagination, A11y, Autoplay, FreeMode]}
           navigation
+          pagination={{ clickable: true }}
           freeMode={true}
-          autoplay={{ delay: 5000 }}
+          // autoplay={{ delay: 3000 }}
           mousewheel={{
             releaseOnEdges: true,
           }}
           loop={true}
+          slidesPerView={1.2}
+          spaceBetween={20}
           breakpoints={{
             640: {
-              slidesPerView: 1,
+              slidesPerView: 1.5,
               spaceBetween: 20,
             },
             768: {
