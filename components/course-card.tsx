@@ -4,7 +4,8 @@ import Link from "next/link";
 import React, { FunctionComponent } from "react";
 
 interface ICourseCard {
-  course: Pick<Course, "name" | "description" | "duration" | "image"> | Course;
+  course: Pick<Course, "name" | "description" | "duration" | "image"> &
+    Partial<Pick<Course, "category">>;
   variant?: "featured" | "normal";
 }
 const CourseCard: FunctionComponent<ICourseCard> = ({
@@ -25,7 +26,6 @@ const CourseCard: FunctionComponent<ICourseCard> = ({
               src={course.image} // Replace with the course image URL
               alt={course.name}
               className="h-full w-full object-cover"
-              // layout="fill"
               width={500}
               height={500}
             />
@@ -61,7 +61,7 @@ const CourseCard: FunctionComponent<ICourseCard> = ({
             />
             <div className="absolute top-4 left-4 bg-cyan-400 p-1 rounded-md">
               <p className="text-lg font-semibold text-white">
-                {course.duration}
+                {course.category?.name}
               </p>
             </div>
           </div>
