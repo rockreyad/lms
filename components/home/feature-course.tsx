@@ -18,7 +18,19 @@ import CourseCard from "../common/course-card";
 import { Course } from "@/types/course.schema";
 
 interface IFeatureCourse {
-  courses: Pick<Course, "id" | "name" | "description" | "duration" | "image">[];
+  courses: Pick<
+    Course,
+    "id" | "name" | "description" | "duration" | "image"
+  >[] &
+    Partial<
+      {
+        ages: {
+          age: {
+            age: number;
+          };
+        }[];
+      }[]
+    >;
 }
 
 const FeatureCourse: FunctionComponent<IFeatureCourse> = ({ courses }) => {
@@ -67,7 +79,10 @@ const FeatureCourse: FunctionComponent<IFeatureCourse> = ({ courses }) => {
         >
           {courses.map((course) => (
             <SwiperSlide key={course.id}>
-              <CourseCard course={course} variant="featured" />
+              <CourseCard
+                course={course as IFeatureCourse["courses"][0]}
+                variant="featured"
+              />
             </SwiperSlide>
           ))}
         </Swiper>

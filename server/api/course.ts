@@ -48,6 +48,15 @@ export async function getFeaturedCourses() {
         description: true,
         duration: true,
         image: true,
+        ages: {
+          select: {
+            age: {
+              select: {
+                age: true,
+              },
+            },
+          },
+        },
       },
     });
 

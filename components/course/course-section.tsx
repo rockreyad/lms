@@ -35,7 +35,7 @@ const CourseSection: FunctionComponent<ICourseSection> = memo(({ courses }) => {
             return course.name.toLowerCase().includes(search.toLowerCase());
           })
           .map((course) => (
-            <CourseCard key={course.id} course={course} />
+            <CourseCard key={course.id} course={course as any} />
           ))}
       </div>
     </div>
