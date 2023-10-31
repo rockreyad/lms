@@ -1,9 +1,9 @@
 "use client";
 import { Course } from "@/types/course.schema";
 import React, { FunctionComponent, memo } from "react";
-import CourseCard from "../course-card";
 import SearchCourse from "./search-course";
 import { useSearchParams } from "next/navigation";
+import CourseCard from "../common/course-card";
 
 interface ICourseSection {
   courses: Course[];
@@ -13,15 +13,18 @@ const CourseSection: FunctionComponent<ICourseSection> = memo(({ courses }) => {
   let search = searchParams.get("search");
   let category = searchParams.get("category");
 
-  const filteredCourses = courses.filter((course) => {
-    const courseNameMatchesSearch =
-      !search || course.name.toLowerCase().includes(search.toLowerCase());
+  const filteredCourses =
+    courses && courses.length
+      ? courses.filter((course) => {
+          const courseNameMatchesSearch =
+            !search || course.name.toLowerCase().includes(search.toLowerCase());
 
-    const courseCategoryMatchesFilter =
-      !category || (course.category && course.category.name === category);
+          const courseCategoryMatchesFilter =
+            !category || (course.category && course.category.name === category);
 
-    return courseNameMatchesSearch && courseCategoryMatchesFilter;
-  });
+          return courseNameMatchesSearch && courseCategoryMatchesFilter;
+        })
+      : [];
   return (
     <div className="space-y-10">
       <SearchCourse />

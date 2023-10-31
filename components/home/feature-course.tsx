@@ -7,7 +7,7 @@ import "swiper/css/thumbs";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-import CourseCard from "../course-card";
+import CourseCard from "../common/course-card";
 import { Course } from "@/types/course.schema";
 
 interface IFeatureCourse {

@@ -12,8 +12,8 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // read route params
-  const age = params.age;
-
+  const ageParams = params.age;
+  const age = ageParams.split("-")[1];
   return {
     title: `Courses for ${age} years old`,
     description: `
@@ -23,7 +23,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 const AgeCourses = async ({ params }: { params: Props["params"] }) => {
-  const { age } = params;
+  const ageParams = params.age;
+  const age = ageParams.split("-")[1];
   const data = await getCoursesByAge(Number(age));
   return (
     <div className="mx-4 space-y-10">
