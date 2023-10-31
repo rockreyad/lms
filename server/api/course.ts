@@ -56,3 +56,48 @@ export async function getFeaturedCourses() {
     console.log(error);
   }
 }
+
+export async function getCourse({
+  age,
+  course_name,
+}: {
+  age: number;
+  course_name: string;
+}) {
+  return prisma.courses.findFirst({
+    where: {
+      name: course_name,
+      ages: {
+        some: {
+          age: {
+            age: age,
+          },
+        },
+      },
+    },
+    select: {
+      name: true,
+      description: true,
+      image: true,
+      duration: true,
+      _count: {
+        select: {
+          modules: {
+            where: {
+              course: {
+                name: course_name,
+                ages: {
+                  some: {
+                    age: {
+                      age: age,
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+  });
+}
