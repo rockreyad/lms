@@ -1,6 +1,5 @@
 "use client";
-import React, { FunctionComponent, useRef } from "react";
-import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
+import React, { FunctionComponent } from "react";
 import {
   Navigation,
   Pagination,
@@ -23,8 +22,6 @@ interface IFeatureCourse {
 }
 
 const FeatureCourse: FunctionComponent<IFeatureCourse> = ({ courses }) => {
-  const prevRef = useRef(null);
-  const nextRef = useRef(null);
   return (
     <div className="bg-cyan-100/30 pt-24 pb-8 sm:pt-32 sm:pb-16">
       <div className="mx-auto max-w-full px-6 lg:px-8 space-y-16">
@@ -73,18 +70,6 @@ const FeatureCourse: FunctionComponent<IFeatureCourse> = ({ courses }) => {
               <CourseCard course={course} variant="featured" />
             </SwiperSlide>
           ))}
-          {/* <div
-            ref={prevRef}
-            className="absolute top-1/2 -translate-y-1/2 left-0 z-20"
-          >
-            <MdKeyboardArrowLeft size="3rem" className="text-slate-100" />
-          </div>
-          <div
-            ref={nextRef}
-            className="absolute top-1/2 -translate-y-1/2 right-0 z-20"
-          >
-            <MdKeyboardArrowRight size="3rem" className="text-slate-100" />
-          </div> */}
         </Swiper>
       </div>
     </div>
