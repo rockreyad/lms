@@ -54,7 +54,7 @@ const ConvertkitSignupForm: React.FC<
   return (
     <>
       <form target="_blank" onSubmit={onSubmit}>
-        <div className="bg-cyan-100/10 text-gray-100 px-8 py-12">
+        <div className="bg-cyan-200/10 text-gray-100 px-8 py-12">
           <div className="max-w-screen-xl mt-24 px-8 grid gap-8 grid-cols-1 md:grid-cols-2 md:px-12 lg:px-16 xl:px-32 py-16 mx-auto bg-cyan-100/20 text-gray-900 rounded-lg shadow-lg">
             <div className="flex flex-col justify-between">
               <div>
@@ -74,7 +74,7 @@ const ConvertkitSignupForm: React.FC<
                   Full Name
                 </span>
                 <input
-                  className="w-full bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+                  className="w-full bg-gray-300/30 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
                   type="text"
                   placeholder=""
                 />
@@ -84,7 +84,7 @@ const ConvertkitSignupForm: React.FC<
                   Email
                 </span>
                 <input
-                  className="w-full bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
+                  className="w-full bg-gray-300/30 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"
                   type="text"
                 />
               </div>
@@ -92,7 +92,7 @@ const ConvertkitSignupForm: React.FC<
                 <span className="uppercase text-sm text-gray-600 font-bold">
                   Message
                 </span>
-                <textarea className="w-full h-32 bg-gray-300 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"></textarea>
+                <textarea className="w-full h-32 bg-gray-300/30 text-gray-900 mt-2 p-3 rounded-lg focus:outline-none focus:shadow-outline"></textarea>
               </div>
               <div className="mt-8">
                 <button className="uppercase text-sm font-bold tracking-wide bg-cyan-400 hover:bg-cyan-500 text-gray-100 p-3 rounded-lg w-full focus:outline-none focus:shadow-outline">

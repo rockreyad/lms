@@ -61,8 +61,8 @@ export const HeroSection = async () => {
           className="aspect-[3/2] object-cover lg:aspect-auto lg:h-full lg:w-full"
           src="/images/hero.jpeg"
           alt="Hero"
-          width={500}
-          height={500}
+          width={1920}
+          height={1280}
         />
       </div>
     </div>
