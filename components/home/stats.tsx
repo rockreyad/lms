@@ -20,15 +20,15 @@ const stats = [
 ];
 const Stats = () => {
   return (
-    <div className="bg-slate-800 py-24 sm:py-32">
+    <div className="bg-sky-100 py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:max-w-none">
           <div className="text-center">
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            <h2 className="text-3xl font-bold tracking-tight text-slate-800 sm:text-4xl">
               <span className="text-cyan-400"> Trusted by</span> parents
               worldwide
             </h2>
-            <p className="mt-4 text-lg leading-6 text-gray-300">
+            <p className="mt-4 text-lg leading-6 text-gray-800">
               Bringing quality digital education to children.
             </p>
           </div>
@@ -36,12 +36,12 @@ const Stats = () => {
             {stats.map((stat) => (
               <div
                 key={stat.id}
-                className="flex flex-col bg-white/5 p-6 rounded-lg"
+                className="flex flex-col bg-white p-6 rounded-lg"
               >
-                <dt className="text-lg font-semibold leading-6 text-gray-300">
+                <dt className="text-lg font-semibold leading-6 text-gray-700">
                   {stat.name}
                 </dt>
-                <dd className="mt-2 text-2xl font-semibold text-slate-300">
+                <dd className="mt-2 text-2xl font-semibold text-slate-900">
                   {stat.value}
                 </dd>
               </div>

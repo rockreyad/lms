@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Dosis } from "next/font/google";
 import "./globals.css";
-import "@radix-ui/themes/styles.css";
-import { Theme } from "@radix-ui/themes";
 import Navbar from "@/components/ui/navbar";
 import Footer from "@/components/ui/footer";
 
-const inter = Inter({ subsets: ["latin"] });
+const dosis = Dosis({
+  weight: ["200", "300", "400", "500", "600", "700", "800"],
+  subsets: ["latin-ext", "vietnamese", "latin"],
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -20,12 +21,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <Theme>
-          <Navbar />
-          {children}
-          <Footer />
-        </Theme>
+      <body className={dosis.className}>
+        <Navbar />
+        {children}
+        <Footer />
       </body>
     </html>
   );
