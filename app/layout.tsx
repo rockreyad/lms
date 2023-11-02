@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
-import { Dosis } from "next/font/google";
+import { Roboto } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/ui/navbar";
 import Footer from "@/components/ui/footer";
 
-const dosis = Dosis({
-  weight: ["200", "300", "400", "500", "600", "700", "800"],
+const roboto = Roboto({
+  weight: ["100", "300", "400", "500", "700", "900"],
   subsets: ["latin-ext", "vietnamese", "latin"],
 });
 
@@ -24,7 +24,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={dosis.className}>
+      <body className={roboto.className}>
         <Navbar />
         {children}
         <Footer />
