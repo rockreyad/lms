@@ -37,11 +37,12 @@ export const HeroSection = async () => {
                 Potential
               </h1>
               <p className="mt-6 text-lg leading-8 text-gray-200">
-                Empower your child with essential digital skills for life. Our
-                curated courses, designed for different age groups, offer a fun
-                and educational journey where they&apos;ll gain proficiency in
-                key digital tools and technologies. Start their adventure in the
-                world of technology today
+                Tangnest aims to transform screen time for Rwandan children into
+                a productive experience. By equipping them with programming
+                skills, often referred to as the language of the future. we
+                envision a next generation of Rwandans who are thinkers and
+                creators, rather than mere passive consumers of social media and
+                other technologies
               </p>
               <div className="mt-10 flex items-center gap-x-6">
                 <Link
