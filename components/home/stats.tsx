@@ -1,21 +1,21 @@
 import React from "react";
 
 const stats = [
-  { id: 1, name: "Families on our platform", value: "10,000+" },
+  { id: 1, name: "Live Online Classes", value: "Engaging real-time learning." },
   {
     id: 2,
-    name: "Affordable pricing",
-    value: "Low-cost courses for every budget.",
+    name: "Expert Teacher Access",
+    value: "Highly qualified educators",
   },
   {
     id: 3,
-    name: "Quality assurance",
-    value: "Ensuring 100% course satisfaction.",
+    name: "Global CS Curriculum",
+    value: "International tech education",
   },
   {
     id: 4,
-    name: "Invested in children's future",
-    value: "Over $100M paid to educators.",
+    name: "Budget-Friendly Coding",
+    value: "Affordable for all.",
   },
 ];
 const Stats = () => {
