@@ -12,10 +12,10 @@ export default async function Home() {
   return (
     <>
       <HeroSection />
-      <Stats />
       {data && <SelectChildAge age={data} />}
+      <Stats />
       {featuredCourses && <FeatureCourse courses={featuredCourses} />}
-      <MarketingVideo />
+      {/* <MarketingVideo /> */}
       <ConvertkitSignupForm formId="5de2554a83" />
     </>
   );
