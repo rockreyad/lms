@@ -1,32 +1,27 @@
 "use client";
-import React, { Fragment, FunctionComponent, useEffect, useState } from "react";
+import React, { Fragment, FunctionComponent, useState } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import { RiArrowDownSFill } from "react-icons/ri";
 import { Age } from "@/types/age.schema";
-import Link from "next/link";
-import { Category } from "@/types/category.schema";
-import SkillSet from "../common/skill-set";
 import classNames from "classnames";
 
 interface ISelectChildAge {
   age: Pick<Age, "id" | "age">[];
-  skills: Category[];
+  selectedAge: number;
 }
 const SelectChildAge: FunctionComponent<ISelectChildAge> = ({
   age,
-  skills,
+  selectedAge,
 }) => {
-  const [selected, setSelected] = useState(age[0]);
-  const [selectedSkills, setSelectedSkills] = useState<Category[] | null>([]);
+  const [selected, setSelected] = useState(
+    age.filter((a) => a.age === selectedAge)[0]
+  );
   return (
     <div
       id="choose-age"
-      className="bg-cyan-500 flex flex-col gap-8 px-6 py-24 lg:px-20"
+      className="flex flex-col lg:flex-row items-center gap-2 w-full  lg:w-1/2 z-10"
     >
-      <p className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white text-center">
-        Please Select Your Child age
-      </p>
-      <div className="w-full md:w-2/4 lg:w-1/4 mx-auto">
+      <div className="w-full mx-auto">
         <Listbox value={selected} onChange={setSelected}>
           <div className="relative mt-1">
             <Listbox.Button className="relative w-full cursor-default rounded-lg bg-white py-4 pl-3 shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white/75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 text-2xl text-center">
@@ -78,26 +73,10 @@ const SelectChildAge: FunctionComponent<ISelectChildAge> = ({
           </div>
         </Listbox>
       </div>
-      <SkillSet
-        skills={skills}
-        setSelectedSkills={setSelectedSkills}
-        selectedSkills={selectedSkills}
-      />
       <button
-        aria-disabled={selectedSkills === null || selectedSkills?.length === 0}
-        onClick={() => {
-          if (selectedSkills !== null && selectedSkills?.length !== 0) {
-            //set the skills to category query param
-            const skills = selectedSkills.map((skill) => skill.name).join(",");
-            window.location.href = `/age-${selected.age}?skills=${skills}`;
-          }
-        }}
+        onClick={() => (window.location.href = `/age-${selected.age}`)}
         className={classNames(
-          "bg-slate-800 text-cyan-500 font-semibold tracking-wider text-2xl uppercase py-4 px-10 rounded-lg shadow-md hover:bg-slate-700 hover:text-white transition duration-300 ease-in-out w-2/3 md:w-2/5 lg:w-1/5 mx-auto text-center",
-          {
-            "cursor-not-allowed bg-slate-800/40 hover:bg-slate-800/40 hover:text-white/40":
-              selectedSkills === null || selectedSkills?.length === 0,
-          }
+          "bg-slate-800 text-cyan-500 font-semibold tracking-wider text-2xl uppercase py-4 px-10 rounded-lg shadow-md hover:bg-slate-700 hover:text-white transition duration-300 ease-in-out  mx-auto text-center"
         )}
       >
         Next
