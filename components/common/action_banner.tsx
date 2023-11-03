@@ -19,7 +19,13 @@ export function SuccessBanner({ message }: { message: string }) {
   );
 }
 
-export function ErrorBanner({ errors }: { errors: z.ZodIssue[] | null }) {
+export function ErrorBanner({
+  errors,
+  message,
+}: {
+  errors: z.ZodIssue[] | null;
+  message?: string;
+}) {
   const totalErrors = errors?.length ? errors.length : 0;
   return (
     <div className="rounded-md bg-red-50 p-4">
@@ -39,10 +45,8 @@ export function ErrorBanner({ errors }: { errors: z.ZodIssue[] | null }) {
                 ))}
             </ul>
           </div>
-          {!totalErrors && (
-            <p className="text-sm font-medium text-red-800">
-              Something went wrong, please try again.
-            </p>
+          {message && (
+            <p className="text-sm font-medium text-red-800">{message}</p>
           )}
         </div>
       </div>

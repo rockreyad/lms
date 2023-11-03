@@ -35,7 +35,9 @@ const ConvertkitSignupForm = () => {
             <div className="">
               {/* form action message */}
               <div className="mb-4">
-                {isError && <ErrorBanner errors={errorsList} />}
+                {isError && (
+                  <ErrorBanner errors={errorsList} message={message} />
+                )}
                 {!isError && message && <SuccessBanner message={message} />}
               </div>
               <div>
