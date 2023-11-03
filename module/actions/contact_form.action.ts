@@ -58,7 +58,6 @@ export async function subscribeConvertKit(prevState: any, formData: FormData) {
       errors: null,
     };
   } catch (e) {
-    console.error(e);
     if (e instanceof z.ZodError) {
       return { error: true, message: null, errors: e.errors };
     }
