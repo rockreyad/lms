@@ -59,7 +59,7 @@ export const HeroSection = async () => {
       </div>
       <iframe
         className="aspect-video w-full lg:w-1/2 h-fit m-auto rounded-lg shadow-lg shadow-cyan-800/20"
-        src="https://www.youtube.com/embed/a4qymb4c57g?si=TJUjsvqP8m9qXEo-"
+        src="https://www.youtube.com/embed/aGkNvnlits8?si=AKtuZlXJn7FX81Ta"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       ></iframe>
       {/* <div className="bg-gray-50 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
