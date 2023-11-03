@@ -1,11 +1,12 @@
 "use client";
+import { Age } from "@/types/age.schema";
 import { Category } from "@/types/category.schema";
 import { useRouter, useSearchParams } from "next/navigation";
 import React, { FunctionComponent, useCallback } from "react";
 
 interface ISecitonCard {
   title: string;
-  description: string;
+  description: Age["courseDetails"];
   category?: Category[];
 }
 const SectionCard: FunctionComponent<ISecitonCard> = ({
@@ -35,7 +36,7 @@ const SectionCard: FunctionComponent<ISecitonCard> = ({
       <p className="text-sm md:text-base lg:text-xl font-medium tracking-wider uppercase">
         {title}
       </p>
-      <h2 className="text-xl md:text-2xl lg:text-4xl font-normal md:font-medium tracking-wide">
+      <h2 className="text-xl md:text-2xl lg:text-4xl font-normal md:font-medium tracking-wide break-words leading-3">
         {description}
       </h2>
 
