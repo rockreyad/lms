@@ -45,7 +45,7 @@ export function ErrorBanner({
                 ))}
             </ul>
           </div>
-          {message && (
+          {!totalErrors && message && (
             <p className="text-sm font-medium text-red-800">{message}</p>
           )}
         </div>

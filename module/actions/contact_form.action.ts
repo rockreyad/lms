@@ -66,6 +66,7 @@ export async function subscribeConvertKit(prevState: any, formData: FormData) {
       error: true,
       message:
         "Apologies, an error occurred. Failed to subscribe, please try again.",
+      errors: null,
     };
   }
 }
