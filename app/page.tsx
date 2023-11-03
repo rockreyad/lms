@@ -16,7 +16,7 @@ export default async function Home() {
       <Stats />
       {featuredCourses && <FeatureCourse courses={featuredCourses} />}
       {/* <MarketingVideo /> */}
-      <ConvertkitSignupForm formId="5de2554a83" />
+      <ConvertkitSignupForm />
     </>
   );
 }
