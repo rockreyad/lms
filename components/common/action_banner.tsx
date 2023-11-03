@@ -39,6 +39,11 @@ export function ErrorBanner({ errors }: { errors: z.ZodIssue[] | null }) {
                 ))}
             </ul>
           </div>
+          {!totalErrors && (
+            <p className="text-sm font-medium text-red-800">
+              Something went wrong, please try again.
+            </p>
+          )}
         </div>
       </div>
     </div>
