@@ -1,15 +1,23 @@
 "use client";
-import React, { Fragment, FunctionComponent, useState } from "react";
+import React, { Fragment, FunctionComponent, useEffect, useState } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import { RiArrowDownSFill } from "react-icons/ri";
 import { Age } from "@/types/age.schema";
 import Link from "next/link";
+import { Category } from "@/types/category.schema";
+import SkillSet from "../common/skill-set";
+import classNames from "classnames";
 
 interface ISelectChildAge {
   age: Pick<Age, "id" | "age">[];
+  skills: Category[];
 }
-const SelectChildAge: FunctionComponent<ISelectChildAge> = ({ age }) => {
+const SelectChildAge: FunctionComponent<ISelectChildAge> = ({
+  age,
+  skills,
+}) => {
   const [selected, setSelected] = useState(age[0]);
+  const [selectedSkills, setSelectedSkills] = useState<Category[] | null>([]);
   return (
     <div
       id="choose-age"
@@ -70,14 +78,30 @@ const SelectChildAge: FunctionComponent<ISelectChildAge> = ({ age }) => {
           </div>
         </Listbox>
       </div>
-
-      <Link
-        href={`/age-${selected.age}`}
-        prefetch={true}
-        className="bg-slate-800 text-cyan-500 font-semibold tracking-wider text-2xl uppercase py-4 px-10 rounded-lg shadow-md hover:bg-slate-700 hover:text-white transition duration-300 ease-in-out w-2/3 md:w-2/5 lg:w-1/5 mx-auto text-center"
+      <SkillSet
+        skills={skills}
+        setSelectedSkills={setSelectedSkills}
+        selectedSkills={selectedSkills}
+      />
+      <button
+        aria-disabled={selectedSkills === null || selectedSkills?.length === 0}
+        onClick={() => {
+          if (selectedSkills !== null && selectedSkills?.length !== 0) {
+            //set the skills to category query param
+            const skills = selectedSkills.map((skill) => skill.name).join(",");
+            window.location.href = `/age-${selected.age}?skills=${skills}`;
+          }
+        }}
+        className={classNames(
+          "bg-slate-800 text-cyan-500 font-semibold tracking-wider text-2xl uppercase py-4 px-10 rounded-lg shadow-md hover:bg-slate-700 hover:text-white transition duration-300 ease-in-out w-2/3 md:w-2/5 lg:w-1/5 mx-auto text-center",
+          {
+            "cursor-not-allowed bg-slate-800/40 hover:bg-slate-800/40 hover:text-white/40":
+              selectedSkills === null || selectedSkills?.length === 0,
+          }
+        )}
       >
         Next
-      </Link>
+      </button>
     </div>
   );
 };
