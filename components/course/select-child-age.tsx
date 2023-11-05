@@ -17,7 +17,9 @@ const SelectChildAge: FunctionComponent<ISelectChildAge> = ({
   skills,
 }) => {
   const [selected, setSelected] = useState(age[0]);
-  const [selectedSkills, setSelectedSkills] = useState<Category[] | null>([]);
+  const [selectedSkills, setSelectedSkills] = useState<Category | null>(null);
+
+  const isNextButtonDisabled = selected.age >= 15 && selectedSkills === null;
   return (
     <div
       id="choose-age"
@@ -26,7 +28,7 @@ const SelectChildAge: FunctionComponent<ISelectChildAge> = ({
       <p className="text-3xl md:text-4xl lg:text-5xl font-semibold text-slate-800 text-center">
         Please Select Your Child age
       </p>
-      <div className="w-full md:w-2/4 lg:w-1/4 mx-auto">
+      <div className="w-full md:w-2/3 lg:w-1/3 mx-auto">
         <Listbox value={selected} onChange={setSelected}>
           <div className="relative mt-1">
             <Listbox.Button className="relative w-full cursor-default rounded-lg bg-white py-4 pl-3 shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white/75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 text-2xl text-center">
@@ -44,7 +46,7 @@ const SelectChildAge: FunctionComponent<ISelectChildAge> = ({
               leaveFrom="opacity-100"
               leaveTo="opacity-0"
             >
-              <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base text-center shadow-lg ring-1 ring-black/5 focus:outline-none sm:text-sm">
+              <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base text-center shadow-lg ring-1 ring-black/5 focus:outline-none sm:text-sm z-10">
                 {age.map((age, ageIdx) => (
                   <Listbox.Option
                     key={ageIdx}
@@ -77,28 +79,28 @@ const SelectChildAge: FunctionComponent<ISelectChildAge> = ({
             </Transition>
           </div>
         </Listbox>
+
+        {selected.age >= 15 && (
+          <SkillSet
+            skills={skills}
+            setSelectedSkills={setSelectedSkills}
+            selectedSkills={selectedSkills}
+          />
+        )}
       </div>
-      {selected.age >= 15 && (
-        <SkillSet
-          skills={skills}
-          setSelectedSkills={setSelectedSkills}
-          selectedSkills={selectedSkills}
-        />
-      )}
       <button
-        aria-disabled={selectedSkills === null || selectedSkills?.length === 0}
+        aria-disabled={isNextButtonDisabled}
         onClick={() => {
-          if (selectedSkills !== null && selectedSkills?.length !== 0) {
-            //set the skills to category query param
-            const skills = selectedSkills.map((skill) => skill.name).join(",");
-            window.location.href = `/age-${selected.age}?skills=${skills}`;
+          if (selectedSkills) {
+            // Set the skills to category query param
+            window.location.href = `/age-${selected.age}?skills=${selectedSkills.name}`;
           }
         }}
         className={classNames(
           "bg-slate-800 text-slate-100/50 font-semibold tracking-wider text-2xl uppercase py-4 px-10 rounded-lg shadow-md hover:bg-slate-700 hover:text-white transition duration-300 ease-in-out w-2/3 md:w-2/5 lg:w-1/5 mx-auto text-center",
           {
             "cursor-not-allowed bg-slate-800/40 hover:bg-slate-800/40 hover:text-white/40":
-              selectedSkills === null || selectedSkills?.length === 0,
+              isNextButtonDisabled,
           }
         )}
       >

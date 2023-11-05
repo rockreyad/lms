@@ -1,50 +1,82 @@
 import { Category } from "@/types/category.schema";
+import { Listbox, Transition } from "@headlessui/react";
 import React, {
   Dispatch,
+  Fragment,
   FunctionComponent,
   SetStateAction,
   useState,
 } from "react";
+import { RiArrowDownSFill } from "react-icons/ri";
 
 interface ISkillSet {
   skills: Category[];
-  selectedSkills: Category[] | null;
-  setSelectedSkills: Dispatch<SetStateAction<Category[] | null>>;
+  selectedSkills: Category | null;
+  setSelectedSkills: Dispatch<SetStateAction<Category | null>>;
 }
 const SkillSet: FunctionComponent<ISkillSet> = ({
   skills,
   selectedSkills,
   setSelectedSkills,
 }) => {
-  const handleCategoriesSelect = (category: Category) => {
-    setSelectedSkills((prev) => {
-      if (prev?.find((cat) => cat.id === category.id)) {
-        return prev?.filter((cat) => cat.id !== category.id);
-      } else {
-        return [...(prev || []), category];
-      }
-    });
-  };
-
   return (
-    <div className="flex flex-col gap-2 mx-auto">
+    <div className="flex flex-col gap-2 mx-auto mt-10">
       <h3 className="text-xl font-semibold text-left text-slate-700">
         Skills <span className="text-red-400">*</span>{" "}
       </h3>
-      <div className="flex flex-1 flex-wrap gap-2">
-        {skills.map((skill, skillIdx) => (
-          <div
-            key={skillIdx}
-            onClick={() => handleCategoriesSelect(skill)}
-            className={`bg-slate-500/20 hover:bg-slate-400/50 text-white text-center px-2 py-1 rounded-md hover:cursor-pointer ${
-              selectedSkills?.find((cat) => cat.id === skill.id)
-                ? "bg-slate-800/70"
-                : ""
-            }`}
-          >
-            {skill.name}
+      <div className="w-full">
+        <Listbox value={selectedSkills} onChange={setSelectedSkills}>
+          <div className="relative mt-1">
+            <Listbox.Button className="relative w-full cursor-default rounded-lg bg-white py-4 pl-3 shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white/75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 text-2xl text-center">
+              <span className="block truncate">
+                {selectedSkills?.name ?? "Select Skill"}
+              </span>
+              <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
+                <RiArrowDownSFill
+                  className="h-10 w-10 text-gray-400"
+                  aria-hidden="true"
+                />
+              </span>
+            </Listbox.Button>
+            <Transition
+              as={Fragment}
+              leave="transition ease-in duration-100"
+              leaveFrom="opacity-100"
+              leaveTo="opacity-0"
+            >
+              <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base text-center shadow-lg ring-1 ring-black/5 focus:outline-none sm:text-sm">
+                {skills.map((skill, skillIdx) => (
+                  <Listbox.Option
+                    key={skillIdx}
+                    className={({ active }) =>
+                      `relative cursor-default select-none py-2 pl-10 pr-8 ${
+                        active ? "bg-amber-100 text-amber-900" : "text-gray-900"
+                      }`
+                    }
+                    value={skill}
+                  >
+                    {({ selected }) => (
+                      <>
+                        <span
+                          className={`block truncate ${
+                            selected ? "font-medium" : "font-normal"
+                          }`}
+                        >
+                          {skill.name}
+                        </span>
+                        {selected ? (
+                          <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-amber-600">
+                            {/* <CheckIcon className="h-5 w-5" aria-hidden="true" /> */}
+                          </span>
+                        ) : null}
+                      </>
+                    )}
+                  </Listbox.Option>
+                ))}
+              </Listbox.Options>
+            </Transition>
           </div>
-        ))}
+        </Listbox>
       </div>
     </div>
   );
