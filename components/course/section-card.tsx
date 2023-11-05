@@ -36,9 +36,9 @@ const SectionCard: FunctionComponent<ISecitonCard> = ({
       <p className="text-sm md:text-base lg:text-xl font-medium tracking-wider uppercase">
         {title}
       </p>
-      <h2 className="text-xl md:text-2xl lg:text-4xl font-normal md:font-medium tracking-wide break-words leading-9 md:leading-8 lg:leading-10">
+      {/* <h2 className="text-xl md:text-2xl lg:text-4xl font-normal md:font-medium tracking-wide break-words leading-9 md:leading-8 lg:leading-10">
         {description}
-      </h2>
+      </h2> */}
 
       <div className="flex flex-wrap gap-2">
         {category?.map((cat, index) => (
