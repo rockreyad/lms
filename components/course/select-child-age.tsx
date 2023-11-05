@@ -21,9 +21,9 @@ const SelectChildAge: FunctionComponent<ISelectChildAge> = ({
   return (
     <div
       id="choose-age"
-      className="bg-cyan-500 flex flex-col gap-8 px-6 py-24 lg:px-20"
+      className="bg-cyan-500/10 flex flex-col gap-8 px-6 py-24 lg:px-20"
     >
-      <p className="text-3xl md:text-4xl lg:text-5xl font-semibold text-white text-center">
+      <p className="text-3xl md:text-4xl lg:text-5xl font-semibold text-slate-800 text-center">
         Please Select Your Child age
       </p>
       <div className="w-full md:w-2/4 lg:w-1/4 mx-auto">
@@ -78,11 +78,13 @@ const SelectChildAge: FunctionComponent<ISelectChildAge> = ({
           </div>
         </Listbox>
       </div>
-      <SkillSet
-        skills={skills}
-        setSelectedSkills={setSelectedSkills}
-        selectedSkills={selectedSkills}
-      />
+      {selected.age >= 15 && (
+        <SkillSet
+          skills={skills}
+          setSelectedSkills={setSelectedSkills}
+          selectedSkills={selectedSkills}
+        />
+      )}
       <button
         aria-disabled={selectedSkills === null || selectedSkills?.length === 0}
         onClick={() => {
@@ -93,7 +95,7 @@ const SelectChildAge: FunctionComponent<ISelectChildAge> = ({
           }
         }}
         className={classNames(
-          "bg-slate-800 text-cyan-500 font-semibold tracking-wider text-2xl uppercase py-4 px-10 rounded-lg shadow-md hover:bg-slate-700 hover:text-white transition duration-300 ease-in-out w-2/3 md:w-2/5 lg:w-1/5 mx-auto text-center",
+          "bg-slate-800 text-slate-100/50 font-semibold tracking-wider text-2xl uppercase py-4 px-10 rounded-lg shadow-md hover:bg-slate-700 hover:text-white transition duration-300 ease-in-out w-2/3 md:w-2/5 lg:w-1/5 mx-auto text-center",
           {
             "cursor-not-allowed bg-slate-800/40 hover:bg-slate-800/40 hover:text-white/40":
               selectedSkills === null || selectedSkills?.length === 0,
