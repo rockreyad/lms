@@ -40,6 +40,10 @@ const CourseSection: FunctionComponent<ICourseSection> = memo(
             <SearchCourse />
           </div>
         </div>
+        <h3 className="text-xl lg:text-3xl text-center font-semibold">
+          {courses.length +
+            `${courses.length <= 1 ? " course" : " courses"} found`}
+        </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {filteredCourses
             .filter((course) => {
