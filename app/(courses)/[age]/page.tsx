@@ -1,9 +1,7 @@
 import CourseSection from "@/components/course/course-section";
 import SectionCard from "@/components/course/section-card";
-import SelectChildAge from "@/components/course/select-child";
 import { getAge } from "@/server/api/age";
 import { courses, getCoursesByAge } from "@/server/api/course";
-import { getSkills } from "@/server/api/skills";
 import { Category } from "@/types/category.schema";
 import { Course } from "@/types/course.schema";
 import { Metadata } from "next";
