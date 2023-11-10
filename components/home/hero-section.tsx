@@ -46,7 +46,7 @@ export const HeroSection = async () => {
               </p>
               <div className="mt-10 flex items-center gap-x-6">
                 <Link
-                  href="#choose-age"
+                  href="/plans"
                   prefetch
                   className="w-[200px] h-[50px] flex justify-center items-center rounded-md bg-cyan-400 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-cyan-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600"
                 >
