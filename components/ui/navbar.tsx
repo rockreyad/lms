@@ -33,10 +33,10 @@ const Navbar: FunctionComponent<INavbar> = ({ className }) => {
           >
             <a href="/" className="-m-1.5 p-1.5">
               <span className="sr-only">
-                Tangnest - The best e-learning platform
+                Education - The best e-learning platform
               </span>
               <Image
-                alt="Tangnest Logo"
+                alt="Education Logo"
                 className="h-8 w-auto"
                 width={200}
                 height={55}

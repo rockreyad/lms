@@ -20,9 +20,9 @@ export const HeroSection = async () => {
             <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl">
               <div className="hidden sm:mb-10 sm:flex">
                 <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-200 ring-1 ring-gray-100/10 hover:ring-gray-100/20">
-                  Discover Tangnest LMS - Unlock Your Kid&apos;s Digital Skills{" "}
+                  Discover Education LMS - Unlock Your Kid&apos;s Digital Skills{" "}
                   <Link
-                    href="https://tangnest.rw/lms"
+                    href=""
                     target="_blank"
                     className="whitespace-nowrap font-semibold text-cyan-500"
                   >

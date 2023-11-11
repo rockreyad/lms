@@ -4,7 +4,7 @@ import { writeJson, readCsvData } from "./utils";
 
 (async () => {
   // Change this file name to the file you want to read
-  const mainFile = "Tangnest Courses AGE 18.csv";
+  const mainFile = "Education Courses AGE 18.csv";
   // Get CSV Data from file
   const mainFileProducts = (await readCsvData<ICsvFiles>(`./data/${mainFile}`))
     .map((product) =>
