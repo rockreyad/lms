@@ -58,10 +58,15 @@ export const HeroSection = async () => {
         </div>
       </div>
       <iframe
-        className="aspect-video w-full lg:w-1/2 h-fit m-auto rounded-lg shadow-lg shadow-cyan-800/20"
+        className="aspect-video hidden sm:block w-full lg:w-1/2 h-fit px-6 m-auto rounded-lg shadow-lg shadow-cyan-800/20"
         src="https://www.youtube.com/embed/aGkNvnlits8?si=AKtuZlXJn7FX81Ta"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       ></iframe>
+      <video
+        src="/homepage_video.mp4"
+        controls
+        className="sm:hidden px-6 mb-6"
+      ></video>
       {/* <div className="bg-gray-50 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
         <Image
           className="aspect-[3/2] object-cover lg:aspect-auto lg:h-full lg:w-full"
